@@ -1,0 +1,23 @@
+.chatFooter {
+    flex: 0 0 12%;
+    background-color: #1d24375d;
+    display: flex;
+    align-items: center;
+    padding : 0 1.5rem;
+
+    .messageInput {
+        flex: 0 0 90%;
+        background-color: #1d2437;
+        color : #d4d4d4;
+        font-size: 1.2rem;
+        padding : .7rem .5rem;
+
+        //removing default outlines and borders
+        border : none;
+        outline : none;
+    }
+
+    .messageSend {
+        flex : 0 0 10%;
+    }
+}

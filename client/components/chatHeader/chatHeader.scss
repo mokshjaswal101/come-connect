@@ -1,0 +1,30 @@
+.chatHeader {
+    flex : 0 0 15%;
+    background-color: #1d24375d;
+
+    display: flex;
+    align-items: center;
+
+    .heading {
+        flex : 0 0 90%;
+        font-size: 2.4rem;
+        color: #d4d4d4;
+        font-weight: 700;
+        margin: 0;
+        padding-left: 1.5rem;
+    }
+
+    .settings {
+        flex: 0 0 10%;
+        color: #e75a89;
+        font-size: 2rem;
+        width: 2rem;
+        display: flex;
+        justify-content: center;
+
+        .settingsIcon{
+            flex: 1;
+            cursor: pointer;
+        }
+    }
+}
