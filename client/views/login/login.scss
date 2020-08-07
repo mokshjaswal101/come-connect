@@ -1,0 +1,91 @@
+.login { 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 30vw;
+    background-color: #222a3f;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: .3rem .3rem .5rem #141825;
+    border-radius: .7rem;
+
+    .loginLogo {
+        flex: auto;
+        color: #e75a89;
+        font-size: 2.5rem;
+    }
+
+    .btn {
+        background-color: none;
+        font-size: 1.6rem;
+        border: none;
+        outline: none;
+        margin: 0 1.5rem;
+        padding: .3rem 0;
+        display: inline-block;
+        cursor: pointer;
+        color: white;
+        transition: all .2s;
+        
+        &:focus {
+            outline: none;
+        }
+    }
+
+    .activeBtn {
+        border-bottom: 1px solid #e75a89;
+        color: #e75a89;
+    }
+
+    .formContainer {
+
+        
+
+        .loginForm,
+        .registerForm {
+        
+            
+            display: flex;
+            flex-direction: column;
+            margin: 1.5rem 0;
+
+            input {
+                margin-top: 1rem;
+                background-color: #1d2437;
+                color: #d4d4d4;
+                outline: none;
+                border: none;
+                font-size: 1.3rem;
+                padding: .5rem .7rem;
+                box-shadow: .2rem .2rem .4rem #141825;
+
+                &:last-of-type{
+                    margin-bottom: 2rem;
+                }
+
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+
+        .registerForm {
+            display: none;
+        }
+        
+        .submit {
+            align-self: center;
+            background-color: #e75a89;
+            outline: none;
+            border: none;
+            border-radius: .5rem;
+            padding: .5rem 1rem;
+            box-shadow: .3rem .3rem .3rem #1d2437;
+            color: #d4d4d4;
+            font-weight: 400;
+        }
+
+    }
+}

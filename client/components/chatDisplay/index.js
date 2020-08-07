@@ -11,6 +11,19 @@ class ChatDisplay extends Component {
     render() {
         return(
             <div className = "chatDisplay">
+
+                <div className = "messageContainer">
+                    <div className = "message you">
+                        My name is Moksh Hello, My name is MokshHello, My name is MokshHello, My name is MokshHello, My name is MokshHello, My name is MokshHello, My name is MokshHello, My name is MokshHello, My name is MokshHello, My name is Moksh
+                    </div>
+                </div>
+
+                <div className = "messageContainer">
+                    <div className = "message partner">
+                        My name is Moksh Hello, My name is MokshHello, My name is MokshHello, My name is MokshHello, My name is MokshHello, My name is MokshHello, My name is MokshHello, My name is MokshHello, My name is MokshHello, My name is Moksh
+                    </div>
+                </div>
+
             </div>
         )
     }

@@ -2,20 +2,32 @@ import React, { Component } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { render } from 'react-dom';
 
+
 //components
-import Sidenav from "./components/sidenav"
+import Sidenav from "./components/sidenav";
+import Login from "./views/login";
 
 export default class App extends Component{
 
   render(){
-    return(
-      <div className="background">
-        <div className="main">
-          <Sidenav />
+
+    if(!Meteor.userId()){
+      return (
+        <div className = "background">
+          <Login />
         </div>
-      </div>
-    )
+      )
+    }
     
+    else {
+      return(
+        <div className="background">
+          <div className="main">
+            <Sidenav />
+          </div>
+        </div>
+      )
+    }
   }
 
 }

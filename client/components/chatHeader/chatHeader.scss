@@ -1,9 +1,11 @@
 .chatHeader {
     flex : 0 0 15%;
     background-color: #1d24375d;
+    box-shadow: 0 .2rem .6rem #1d2437;
 
     display: flex;
     align-items: center;
+
 
     .heading {
         flex : 0 0 90%;
@@ -23,7 +25,6 @@
         justify-content: center;
 
         .settingsIcon{
-            flex: 1;
             cursor: pointer;
         }
     }
