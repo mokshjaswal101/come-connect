@@ -30,6 +30,7 @@ class ChatHeader extends Component {
                     }
                 </h1>
                 <div className="settings"><FontAwesomeIcon className=" settingsIcon" icon={faCog}/></div>
+                
             </div>
         )
     }

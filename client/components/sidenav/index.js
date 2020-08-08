@@ -61,9 +61,7 @@ class Sidenav extends Component {
                     <div className="info" id ="info"></div>
 
                     <div className = "chatList">
-                        {
-                            console.log(this.state.active)
-                        }
+                        
                         {
                             this.props.loading ? null : 
                             this.props.activeConversations.map((element) => {
