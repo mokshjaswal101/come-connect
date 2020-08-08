@@ -5,7 +5,11 @@ const waitingList = new Mongo.Collection("waitingList");
 
 waitingList.schema = new Schema({
 
-    user : {
+    userId : {
+        type : String,
+    },
+
+    name : {
         type : String,
     },
 

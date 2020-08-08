@@ -9,8 +9,8 @@ Meteor.publish("userConversations", function(){
     
     return conversations.find({
         $or : [
-            {user1 : Meteor.userId()},
-            {user2 : Meteor.userId()}
+            {userId1 : Meteor.userId()},
+            {userId2 : Meteor.userId()}
         ],
         status : true,
     });
@@ -26,8 +26,8 @@ Meteor.methods({
         //finding number of active conversations
         let existingConvo = conversations.find({
             $or : [
-                {user1 : Meteor.userId()},
-                {user2 : Meteor.userId()}
+                {userId1 : Meteor.userId()},
+                {userId2 : Meteor.userId()}
             ], 
             status : true,
         }).fetch();
@@ -38,16 +38,19 @@ Meteor.methods({
         else {
             //Checking if partner available
             let waitlistCheck = waitingList.find({
-                user : { $ne : Meteor.userId() }
+                userId : { $ne : Meteor.userId() },
+                status : true,
             }).fetch();
 
             if( waitlistCheck.length > 0 ) {
                 
-                let partnerId = waitlistCheck[0].user;
+                let partnerId = waitlistCheck[0].userId;
+                let partnerName = waitlistCheck[0].name;
 
                 //removing partner from waiting list
                 waitingList.update({
-                    _id : partnerId,
+                    userId : partnerId,
+                    status : true,
                 },{
                     $set : {
                         status : false,
@@ -56,8 +59,10 @@ Meteor.methods({
 
                 //Insert new conversation
                 conversations.insert({
-                    user1 : Meteor.userId(),
-                    user2 : partnerId,
+                    userId1 : Meteor.userId(),
+                    userId2 : partnerId,
+                    name1 : Meteor.user().username,
+                    name2 : partnerName,
                     startDate : Date.now(),
                 })
 
@@ -65,17 +70,16 @@ Meteor.methods({
 
             } else {
                 //check if already present in waiting List
-                let waitListAddCheck = waitingList.find({ user : Meteor.userId(), status : true }).fetch();
+                let waitListAddCheck = waitingList.find({ userId : Meteor.userId(), status : true }).fetch();
                 
-                console.log(waitListAddCheck);
-
                 if(waitListAddCheck.length > 0) {
                     return "Already Waitlisted!";
                 } else {
 
                     //Add to waitlist
                     waitingList.insert({
-                        user : Meteor.userId(),
+                        userId : Meteor.userId(),
+                        name : Meteor.user().username,
                         time : Date.now()
                     })
 

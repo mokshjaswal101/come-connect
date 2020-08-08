@@ -5,11 +5,19 @@ const conversations = new Mongo.Collection("conversations");
 
 conversations.schema = new Schema({
 
-    user1 : {
+    userId1 : {
         type : String,
     },
 
-    user2 : {
+    userId2 : {
+        type : String,
+    },
+
+    name1 : {
+        type : String,
+    },
+
+    name2 : {
         type : String,
     },
 

@@ -15,6 +15,10 @@ messages.schema = new Schema({
 
     receiver : {
         type : String,
+    },
+
+    sendTime : {
+        type : String,
     }
     
 })

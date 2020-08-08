@@ -18,13 +18,33 @@ import "./sidenav.scss";
 
 class Sidenav extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            active : "",
+        }
+    }
+
     //Add a new Conversation
     addConversation() {
         //calling method to add conversation
         Meteor.call('addConversation',function(error, result) {
             //displaying result of method call
-            document.getElementById("info").innerText = result;
+            document.querySelector('.chatItem').innerText = result;
         });
+    };
+
+    //change conversation styles and convo active state
+    convoChange(convoId) {
+        this.setState({
+            active : convoId,
+        });
+    }
+
+
+    //logout
+    logout() {
+        Meteor.logout();
     }
 
     render() {
@@ -41,14 +61,24 @@ class Sidenav extends Component {
 
                     <div className = "chatList">
 
-                        <div className = "chatItem active">Moksh Jaswal</div>
+                        {
+                            this.props.loading ? null : 
+                            this.props.activeConversations.map((element) => {
+                                if(element.userId1 == Meteor.userId()){
+                                    return <div key={element.userId2} onClick={() => this.convoChange(element._id)} className = "chatItem">{element.name2}</div>
+                                }
+                                else {
+                                    return <div key={element.userId1} onClick={() => this.convoChange(element._id)} className = "chatItem">{element.name1}</div>
+                                }    
+                            })
+                        }
 
                         <div onClick = {() => this.addConversation()} className = "addChat"><FontAwesomeIcon className="addChatIcon" icon = {faPlus}></FontAwesomeIcon></div>
 
                     </div>
 
                     <div className="logoutContainer">
-                        <div className = "logout">
+                        <div onClick = {() => this.logout()} className = "logout">
                             <FontAwesomeIcon className="logoutIcon" icon = {faSignOutAlt}></FontAwesomeIcon>
                         </div>
                     </div>
@@ -56,7 +86,7 @@ class Sidenav extends Component {
 
                 </div>
 
-                <ChatArea />
+                <ChatArea conversationId = {this.state.active}/>
 
             </div>
         )
@@ -70,7 +100,7 @@ const SidenavContainer = withTracker( () => {
     
     return {
         loading,
-        activeConversations :loading || conversations.find({ $or : [ { user1 : Meteor.userId() }, {user2 : Meteor.userId()}] }).fetch(),
+        activeConversations :loading || conversations.find({ $or : [ { userId1 : Meteor.userId() }, {userId2 : Meteor.userId()}] }).fetch(),
       };
   
   })(Sidenav);
