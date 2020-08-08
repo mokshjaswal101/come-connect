@@ -15,6 +15,7 @@ conversations.schema = new Schema({
 
     status : {
         type : Boolean,
+        defaultValue : true,
     },
 
     startDate : {

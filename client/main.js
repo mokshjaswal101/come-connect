@@ -7,6 +7,7 @@ import { withTracker } from "meteor/react-meteor-data";
 //components
 import Sidenav from "./components/sidenav";
 import Login from "./views/login";
+import SidenavContainer from './components/sidenav';
 
 export default class App extends Component{
 
@@ -24,7 +25,7 @@ export default class App extends Component{
       return(
         <div className="background">
           <div className="main">
-            <Sidenav />
+            <SidenavContainer />
           </div>
         </div>
       )
