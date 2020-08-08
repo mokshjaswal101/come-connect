@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { render } from 'react-dom';
+import { withTracker } from "meteor/react-meteor-data";
 
 
 //components
@@ -32,6 +33,17 @@ export default class App extends Component{
 
 }
 
+//Realtime Login Check
+const AppContainer = withTracker( () => {
+
+  const loginUser = Meteor.subscribe("loginUser");
+  
+  return {
+		loginUser : Meteor.users.find({_id : Meteor.userId()}).fetch()
+	};
+
+})(App);
+
 Meteor.startup(() => {
-  render(<App/>, document.getElementById('container'));
+  render(<AppContainer/>, document.getElementById('container'));
 });
