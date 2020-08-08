@@ -20,6 +20,7 @@ class Sidenav extends Component {
 
     constructor(props) {
         super(props);
+
         this.state = {
             active : "",
         }
@@ -60,7 +61,9 @@ class Sidenav extends Component {
                     <div className="info" id ="info"></div>
 
                     <div className = "chatList">
-
+                        {
+                            console.log(this.state.active)
+                        }
                         {
                             this.props.loading ? null : 
                             this.props.activeConversations.map((element) => {
@@ -100,7 +103,7 @@ const SidenavContainer = withTracker( () => {
     
     return {
         loading,
-        activeConversations :loading || conversations.find({ $or : [ { userId1 : Meteor.userId() }, {userId2 : Meteor.userId()}] }).fetch(),
+        activeConversations :loading || conversations.find({ $or : [ { userId1 : Meteor.userId() }, {userId2 : Meteor.userId()}], status : true }).fetch(),
       };
   
   })(Sidenav);

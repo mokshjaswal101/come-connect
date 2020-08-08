@@ -37,7 +37,7 @@ class ChatHeader extends Component {
 
 const ChatHeaderContainer = withTracker( (props) => {
     return {
-        activeConversation: conversations.find({_id : props.conversationId}).fetch(),
+        activeConversation: conversations.find({_id : props.conversationId , status : true}).fetch(),
       };
   
   })(ChatHeader);

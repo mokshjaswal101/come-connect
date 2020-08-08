@@ -5,7 +5,11 @@ const messages = new Mongo.Collection("messages");
 
 messages.schema = new Schema({
 
-    conversation : {
+    conversationId : {
+        type : String,
+    },
+
+    message : {
         type : String,
     },
 

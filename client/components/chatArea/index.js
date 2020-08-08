@@ -3,13 +3,12 @@ import { Meteor } from "meteor/meteor";
 import { withTracker } from "meteor/react-meteor-data";
 
 //components
-import ChatHeader from "../chatHeader";
-import ChatDisplay from "../chatDisplay";
+import ChatDisplayContainer from "../chatDisplay";
+import ChatHeaderContainer from "../chatHeader";
 import ChatFooter from "../chatFooter";
 
 //import SASS
 import "./chatArea.scss";
-import ChatHeaderContainer from "../chatHeader";
 
 class ChatArea extends Component {
 
@@ -18,7 +17,7 @@ class ChatArea extends Component {
         return(
             <div className = "chatArea">
                 <ChatHeaderContainer conversationId = {this.props.conversationId} />
-                <ChatDisplay conversationId = {this.props.conversationId} />
+                <ChatDisplayContainer conversationId = {this.props.conversationId} />
                 <ChatFooter conversationId = {this.props.conversationId} />
             </div>
         )

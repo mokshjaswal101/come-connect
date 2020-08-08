@@ -1,48 +1,60 @@
 .chatFooter {
     flex: 0 0 12%;
     background-color: #1d24375d;
-    display: flex;
     align-items: center;
     padding : 0 1.5rem;
+    display: flex;
 
-    .messageInput {
-        flex: 0 0 85%;
-        margin-left: auto;
-        background-color: #1d2437;
-        color : #d4d4d4;
-        font-size: 1.2rem;
-        padding : .7rem .5rem;
-        height: calc(100% - 1.2rem);
-        border-radius: .4rem 0 0 .4rem ;
+    .messageForm{
+        flex: 1;
+        display: flex;
 
-        //removing default outlines and borders
-        border : none;
-        outline : none;
-
-        &::placeholder {
-            color: #d4d4d4;
+        .messageInput {
+            flex: 0 0 85%;
+            margin-left: auto;
+            background-color: #1d2437;
+            color : #d4d4d4;
+            font-size: 1.2rem;
+            padding : .7rem .5rem;
+            border-radius: .4rem 0 0 .4rem ;
+    
+            //removing default outlines and borders
+            border : none;
+            outline : none;
+    
+            &::placeholder {
+                color: #d4d4d4;
+            }
+        }
+    
+        .messageSend {
+            flex : 0 0 7%;
+            margin-right: auto;
+            background-color: #1d2437;
+            display: flex;
+            padding: .4rem;
+            border-radius: 0 .4rem .4rem 0;
+                
+           .messageSendBackground {
+                flex: 1;
+                background-color: #e75a89;
+                color: #d4d4d4;
+                border-radius: .4rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1rem;
+                cursor: pointer;
+                outline: none;
+                border: none;
+    
+                &:focus {
+                    outline: none;
+                    border: none;
+                }
+           }
         }
     }
 
-    .messageSend {
-        flex : 0 0 7%;
-        margin-right: auto;
-        background-color: #1d2437;
-        height: calc(100% - 1.2rem);
-        display: flex;
-        padding: .4rem;
-        border-radius: 0 .4rem .4rem 0;
-
-       .messageSendBackground {
-            flex: 1;
-            background-color: #e75a89;
-            color: #d4d4d4;
-            border-radius: .4rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-            cursor: pointer;
-       }
-    }
+    
 }
