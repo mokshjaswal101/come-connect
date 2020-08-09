@@ -16,7 +16,7 @@ class ChatArea extends Component {
     render() {
         return(
             <div className = "chatArea">
-                <ChatHeaderContainer conversationId = {this.props.conversationId} />
+                <ChatHeaderContainer updateState = {() => this.props.stateUpdate()} conversationId = {this.props.conversationId} />
                 <ChatDisplayContainer conversationId = {this.props.conversationId} />
                 <ChatFooter conversationId = {this.props.conversationId} />
             </div>

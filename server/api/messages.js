@@ -7,7 +7,6 @@ import conversations from "../models/conversations";
 
 Meteor.publish('getMessages', function(convoId){
 
-    console.log(messages.find({ conversationId : convoId}).fetch());
     return messages.find({ conversationId : convoId});
 
 });

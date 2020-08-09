@@ -23,10 +23,42 @@
         width: 2rem;
         display: flex;
         justify-content: center;
+        position: relative;
 
         .settingsIcon{
             cursor: pointer;
         }
+
+        .dropdown {
+            font-size: 1.5rem;
+            position: absolute;
+            top: 130%;
+            right: 5%;
+            background-color: #141825;
+            color: #d4d4d4;
+            padding: .5rem 1rem;
+            box-shadow: .2rem .2rem .4rem #141825;
+            cursor: pointer;
+            border-radius: .5rem;
+            transition: all .2s;
+            white-space: nowrap;
+            display: none;
+            opacity: 0;
+
+            &:hover {
+                background-color: #e75a89;
+            }
+        }
+
+        .show {
+            display: block;
+            opacity: 1;
+        }
+
     }
+
+   
+
+    
 
 }

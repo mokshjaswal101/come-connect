@@ -89,5 +89,19 @@ Meteor.methods({
             }
         }
         
-	},
+    },
+    
+    //Method to End Conversation
+    'endConversation'(conversationId){
+        check(conversationId,String);
+
+        conversations.update({
+            _id : conversationId,
+            status : true,
+        },{
+            $set : {
+                status : false,
+            }
+        })
+    }
 })

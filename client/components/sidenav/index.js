@@ -22,8 +22,15 @@ class Sidenav extends Component {
         super(props);
 
         this.state = {
-            active : "",
+            active : this.props.loading ? null :  console.log(this.props.activeConversations) ,
         }
+    }
+
+    //Change the state when conversation ends
+    changeState(){
+        this.setState({
+            active : "",
+        })
     }
 
     //Add a new Conversation
@@ -31,7 +38,7 @@ class Sidenav extends Component {
         //calling method to add conversation
         Meteor.call('addConversation',function(error, result) {
             //displaying result of method call
-            document.querySelector('.chatItem').innerText = result;
+            document.querySelector('.info').innerText = result;
         });
     };
 
@@ -40,6 +47,11 @@ class Sidenav extends Component {
         this.setState({
             active : convoId,
         });
+
+        if(document.querySelector('.active')){
+            document.querySelector('.active').classList.remove('active');
+        }
+        document.getElementById(convoId).classList.add('active');
     }
 
 
@@ -61,15 +73,17 @@ class Sidenav extends Component {
                     <div className="info" id ="info"></div>
 
                     <div className = "chatList">
-                        
+                        {
+                            console.log(this.state.active)
+                        }
                         {
                             this.props.loading ? null : 
                             this.props.activeConversations.map((element) => {
                                 if(element.userId1 == Meteor.userId()){
-                                    return <div key={element.userId2} onClick={() => this.convoChange(element._id)} className = "chatItem">{element.name2}</div>
+                                    return <div id={element._id} key={element.userId2} onClick={() => this.convoChange(element._id)} className = "chatItem">{element.name2}</div>
                                 }
                                 else {
-                                    return <div key={element.userId1} onClick={() => this.convoChange(element._id)} className = "chatItem">{element.name1}</div>
+                                    return <div id={element._id} key={element.userId1} onClick={() => this.convoChange(element._id)} className = "chatItem">{element.name1}</div>
                                 }    
                             })
                         }
@@ -87,7 +101,7 @@ class Sidenav extends Component {
 
                 </div>
 
-                <ChatArea conversationId = {this.state.active}/>
+                <ChatArea stateUpdate = {() => this.changeState()} conversationId = {this.state.active}/>
 
             </div>
         )
