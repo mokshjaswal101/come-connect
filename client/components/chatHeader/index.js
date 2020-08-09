@@ -39,15 +39,9 @@ class ChatHeader extends Component {
         }
     };
 
-    //end conversation
+    //Open End Conversation Modal
     endConversation() {
-        if(this.props.conversationId){
-            //Calling method to end conversation
-            Meteor.call('endConversation',this.props.conversationId);
-            this.props.updateState();
-        } else {
-            console.log('error');
-        }
+        document.getElementById('convoModalContainer').style.display = "block";
     }
 
 

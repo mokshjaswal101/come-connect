@@ -1,0 +1,220 @@
+.infoModalContainer{
+
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    background-image: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5));
+    display: none;
+
+    .infoModal {
+      
+
+      // placing at center
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+
+      .infoModalInner {
+
+        height: 100%;
+        width: 100%;
+        display: flex;
+        padding: 1rem 2rem;
+        border-radius: 1rem;
+        background-color: #1d2437;
+
+        .info {
+          flex: 1;
+          font-size: 1.6rem;
+          color: #d4d4d4;
+          margin : 0;
+          text-align: center;
+          line-height: 2rem;
+        }
+  
+        .close {
+          padding: 0 .8rem;
+          display: flex;
+          align-items: center;
+  
+          .closeIcon {
+            margin-left: auto;
+            color: #e75a89;
+            font-size: 1.5rem;
+            cursor: pointer;
+          }
+        }
+      }
+
+      
+  
+    }
+
+  }
+
+  //logout Confirm Modal
+  .logoutModalContainer{
+
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    background-image: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5));
+    display: none;
+
+    .logoutModal {
+    
+      // placing at center
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+
+      .logoutModalInner {
+
+        height: 100%;
+        width: 100%;
+        background-color: #1d2437;
+        padding: 1rem 2rem;
+        border-radius: 1rem;
+        display: flex;
+        color: #d4d4d4;
+
+        .logoutInfo {
+
+          color: #d4d4d4;
+          display: flex;
+          flex-direction: column;
+  
+          .logoutHeading {
+            font-size: 1.6rem;
+            margin: 0;
+          }
+  
+          .buttonContainer {
+            font-size: 1.6rem;
+            display: flex;
+            justify-content: center;
+  
+            button {
+              margin: 1rem .8rem 0 .8rem;
+              border: none;
+              outline: none;
+              background-color: #e75a89;
+              padding: .4rem .6rem;
+              color: #d4d4d4;
+              border-radius: .5rem;
+              font-weight: 400;
+              cursor: pointer;
+  
+              &:focus {
+                border: none;
+                outline: none;
+              }
+            }
+  
+          }
+  
+        }
+  
+        .close {
+          padding: 0 .8rem;
+          display: flex;
+  
+          .closeIcon {
+            margin-left: auto;
+            color: #e75a89;
+            font-size: 1.5rem;
+            cursor: pointer;
+          }
+        }
+    
+      }
+
+    }
+
+  }
+
+  //End Conversation Confirm Modal
+  .convoModalContainer{
+
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    background-image: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5));
+
+    .convoModal {
+    
+      // placing at center
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+
+      .convoModalInner {
+
+        height: 100%;
+        width: 100%;
+        background-color: #1d2437;
+        padding: 1rem 2rem;
+        border-radius: 1rem;
+        display: flex;
+        color: #d4d4d4;
+
+        .convoInfo {
+
+          color: #d4d4d4;
+          display: flex;
+          flex-direction: column;
+  
+          .convoHeading {
+            font-size: 1.6rem;
+            margin: 0;
+            text-align: center;
+          }
+  
+          .buttonContainer {
+            font-size: 1.6rem;
+            display: flex;
+            justify-content: center;
+  
+            button {
+              margin: 1rem .8rem 0 .8rem;
+              border: none;
+              outline: none;
+              background-color: #e75a89;
+              padding: .4rem .6rem;
+              color: #d4d4d4;
+              border-radius: .5rem;
+              font-weight: 400;
+              cursor: pointer;
+  
+              &:focus {
+                border: none;
+                outline: none;
+              }
+            }
+  
+          }
+  
+        }
+  
+        .close {
+          padding: 0 .8rem;
+          display: flex;
+  
+          .closeIcon {
+            margin-left: auto;
+            color: #e75a89;
+            font-size: 1.5rem;
+            cursor: pointer;
+          }
+        }
+    
+      }
+
+    }
+
+  }
+  
+

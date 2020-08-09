@@ -36,10 +36,12 @@ class Sidenav extends Component {
     //Add a new Conversation
     addConversation() {
         //calling method to add conversation
-        Meteor.call('addConversation',function(error, result) {
+         Meteor.call('addConversation',function(error, result) {
             //displaying result of method call
-            document.querySelector('.info').innerText = result;
-        });
+            document.getElementById('info').textContent = result;
+            document.getElementById('infoModalContainer').style.display = "block";
+            
+         });
     };
 
     //change conversation styles and convo active state
@@ -55,9 +57,9 @@ class Sidenav extends Component {
     }
 
 
-    //logout
+    //Open Logout Modal
     logout() {
-        Meteor.logout();
+        document.getElementById('logoutModalContainer').style.display = "block";
     }
 
     render() {
@@ -69,8 +71,6 @@ class Sidenav extends Component {
                    <div className = "titleContainer">
                        <h1 className = "title">ComeConnect</h1>
                     </div>
-
-                    <div className="info" id ="info"></div>
 
                     <div className = "chatList">
                         {
