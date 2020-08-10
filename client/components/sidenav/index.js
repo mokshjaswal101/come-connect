@@ -26,20 +26,16 @@ class Sidenav extends Component {
         }
     }
 
-    updateState(){
+    componentDidUpdate(){
         if(this.state.active == "" && !this.props.loading){
             this.setState({
                 active : this.props.activeConversations[0]._id,
             })
         }
+        
     }
 
-    //Change the state when conversation ends
-    changeState(){
-        this.setState({
-            active : "",
-        })
-    }
+   
 
     //Add a new Conversation
     addConversation() {
@@ -82,10 +78,6 @@ class Sidenav extends Component {
 
                     <div className = "chatList">
                         {
-                            this.props.loading && this.state.active == "" ? null :
-                            this.updateState
-                        }
-                        {
                             console.log(this.state.active)
                         }
                         {
@@ -113,7 +105,7 @@ class Sidenav extends Component {
 
                 </div>
 
-                <ChatArea stateUpdate = {() => this.changeState()} conversationId = {this.state.active}/>
+                <ChatArea conversationId = {this.state.active}/>
 
             </div>
         )
