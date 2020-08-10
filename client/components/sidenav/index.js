@@ -22,7 +22,15 @@ class Sidenav extends Component {
         super(props);
 
         this.state = {
-            active : this.props.loading ? null :  console.log(this.props.activeConversations) ,
+            active : "" ,
+        }
+    }
+
+    updateState(){
+        if(this.state.active == "" && !this.props.loading){
+            this.setState({
+                active : this.props.activeConversations[0]._id,
+            })
         }
     }
 
@@ -73,6 +81,10 @@ class Sidenav extends Component {
                     </div>
 
                     <div className = "chatList">
+                        {
+                            this.props.loading && this.state.active == "" ? null :
+                            this.updateState
+                        }
                         {
                             console.log(this.state.active)
                         }

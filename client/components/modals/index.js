@@ -34,13 +34,16 @@ class Modals extends Component {
       Meteor.logout();
     } 
 
-  //   if(this.props.conversationId){
-  //     //Calling method to end conversation
-  //     Meteor.call('endConversation',this.props.conversationId);
-  //     this.props.updateState();
-  // } else {
-  //     console.log('error');
-  // }
+    endConversation(){
+      if(this.props.conversationId){
+        //Calling method to end conversation
+        Meteor.call('endConversation',this.props.conversationId);
+        this.props.updateState();
+      } else {
+          console.log('error');
+      }
+    }
+     
   
     //Add event listener when component mounts
     componentDidMount() {
@@ -112,7 +115,7 @@ class Modals extends Component {
                     <div className="convoInfo">
                       <h2 className = "convoHeading">Are You sure you want to End Conversation? <br></br> You may not connect with this person again</h2>
                       <div className="buttonContainer">
-                        <button onClick = {() => this.logout()}>Yes</button>
+                        <button onClick = {() => this.endConversation()}>Yes</button>
                         <button onClick = {() => this.closeConvoModal()}>No</button>
                       </div>
                     </div>
