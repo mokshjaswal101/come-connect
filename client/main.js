@@ -28,13 +28,13 @@ export default class App extends Component{
 
   render(){
 
-    // if(!Meteor.userId()){
-    //   return (
-    //     <div className = "background">
-    //       <Login />
-    //     </div>
-    //   )
-    // }
+    if(!Meteor.userId()){
+      return (
+        <div className = "background">
+          <Login />
+        </div>
+      )
+    }
     
     else {
       return(
