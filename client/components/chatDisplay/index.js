@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Meteor } from "meteor/meteor";
 import { withTracker } from "meteor/react-meteor-data";
-import { scrollToBottom } from "react-scroll";
 
 //import collections
 import messages from "../../models/messages";
@@ -11,12 +10,27 @@ import "./chatDisplay.scss";
 
 class ChatDisplay extends Component {
 
+    //Scroll the messages to bottom
+    scrollToBottom = () => {
+        this.messagesEnd.scrollIntoView({ behavior: "auto" });
+    }
+    
+    //scroll to bottom when the component mounts
+    componentDidMount() {
+    this.scrollToBottom();
+    }
+    
+    //scroll to bottom whenever component updatess
+    componentDidUpdate() {
+    this.scrollToBottom();
+    }
+
     render() {
         return(
-            <div className = "chatDisplay" id="chatDisplay">
+            <div className = "chatDisplay" id="chatDisplay" ref={(node) => { this.node = node; }}>
 
                 {
-                    this.props.loading ? null : 
+                    this.props.loading ? null :                     
                     this.props.convoMessages.map ((el,index,array) => {
                         if(el.sender == Meteor.userId()){
                             if(index!= 0 && array[index - 1 ].sender == Meteor.userId() ){
@@ -57,8 +71,11 @@ class ChatDisplay extends Component {
                             } 
                         }
                     })
+                   
                 }
-
+                 <div className="messageEnd" style={{ float:"left", clear: "both" }}
+                    ref={(el) => { this.messagesEnd = el; }}>
+                    </div>
             </div>
         )
     }
