@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Meteor } from "meteor/meteor";
 import { withTracker } from "meteor/react-meteor-data";
+import { scrollToBottom } from "react-scroll";
 
 //import collections
 import messages from "../../models/messages";
@@ -12,7 +13,7 @@ class ChatDisplay extends Component {
 
     render() {
         return(
-            <div className = "chatDisplay">
+            <div className = "chatDisplay" id="chatDisplay">
 
                 {
                     this.props.loading ? null : 

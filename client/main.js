@@ -9,6 +9,22 @@ import SidenavContainer from './components/sidenav';
 import Modals from './components/modals';
 
 export default class App extends Component{
+  constructor(){
+    super();
+    this.state = {
+      activeId : "",
+      convoEnded : ""
+    }
+  }
+
+  receiveConvoId = (convoId) => {
+    if(convoId != ""){
+      this.setState({
+        activeId : convoId
+      })
+    }
+  }
+  
 
   render(){
 
@@ -24,9 +40,9 @@ export default class App extends Component{
       return(
         <div className="background">
           <div className="main">
-            <SidenavContainer />
+            <SidenavContainer convoEnded ={this.state.convoEnded} getConvoId = {this.receiveConvoId}/>
           </div>
-            <Modals />
+            <Modals receiveEnd = {this.receiveEndConvo} convoId = {this.state.activeId}/>
         </div>
       )
     }

@@ -27,11 +27,16 @@ class Sidenav extends Component {
     }
 
     componentDidUpdate(){
-        if(this.state.active == "" && !this.props.loading){
+        if(this.state.active == "" && this.props.activeConversations.length != 0 && !this.props.loading){
             this.setState({
                 active : this.props.activeConversations[0]._id,
             })
+
+            document.getElementById(this.props.activeConversations[0]._id).classList.add('active');
         }
+        
+        if(this.state.active != "")
+        this.props.getConvoId(this.state.active);
         
     }
 
@@ -47,7 +52,8 @@ class Sidenav extends Component {
             
          });
     };
-
+    
+    
     //change conversation styles and convo active state
     convoChange(convoId) {
         this.setState({
@@ -66,6 +72,7 @@ class Sidenav extends Component {
         document.getElementById('logoutModalContainer').style.display = "block";
     }
 
+    
     render() {
         return(
             <div className = "cover">
