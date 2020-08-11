@@ -13,18 +13,26 @@ export default class App extends Component{
     super();
     this.state = {
       activeId : "",
-      convoEnded : ""
+      ended : ""
     }
   }
 
   receiveConvoId = (convoId) => {
     if(convoId != ""){
       this.setState({
-        activeId : convoId
+        activeId : convoId,
+        ended: ""
       })
     }
   }
   
+  endConvo = (isEnded) => {
+    if(isEnded == 'ended'){
+      this.setState({
+        ended : "ended",
+      })
+    }
+  }
 
   render(){
 
@@ -40,9 +48,9 @@ export default class App extends Component{
       return(
         <div className="background">
           <div className="main">
-            <SidenavContainer convoEnded ={this.state.convoEnded} getConvoId = {this.receiveConvoId}/>
+            <SidenavContainer isEnded={this.state.ended}  getConvoId = {this.receiveConvoId}/>
           </div>
-            <Modals receiveEnd = {this.receiveEndConvo} convoId = {this.state.activeId}/>
+            <Modals convoEnded = {this.endConvo}  convoId = {this.state.activeId}/>
         </div>
       )
     }

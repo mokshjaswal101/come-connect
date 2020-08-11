@@ -27,12 +27,25 @@ class Sidenav extends Component {
     }
 
     componentDidUpdate(){
-        if(this.state.active == "" && this.props.activeConversations.length != 0 && !this.props.loading){
+        if(this.props.isEnded == 'ended' && this.props.activeConversations.length != 0){
             this.setState({
                 active : this.props.activeConversations[0]._id,
-            })
-
+            });
             document.getElementById(this.props.activeConversations[0]._id).classList.add('active');
+        } else if (this.props.isEnded == 'ended' && this.props.activeConversations.length == 0){
+            this.setState({
+                active : ""
+            })
+        } 
+        else {
+            if(this.state.active == "" && this.props.activeConversations.length != 0 && !this.props.loading){
+                this.setState({
+                    active : this.props.activeConversations[0]._id,
+                })
+
+                document.getElementById(this.props.activeConversations[0]._id).classList.add('active');
+                
+            }
         }
         
         if(this.state.active != "")
@@ -115,6 +128,7 @@ class Sidenav extends Component {
                 <ChatArea conversationId = {this.state.active}/>
 
             </div>
+            
         )
     }
 }

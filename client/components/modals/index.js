@@ -39,6 +39,7 @@ class Modals extends Component {
         //Calling method to end conversation
         Meteor.call('endConversation',this.props.convoId);
         this.closeConvoModal();
+        this.props.convoEnded('ended');
       } else {
           console.log('error');
       }
