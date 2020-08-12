@@ -41,12 +41,19 @@
 
     .formContainer {
 
-        
+        .loginInfo {
+            margin: none;
+            text-align: center;
+            color: red;
+            margin-top: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 0;
+            font-size: 1.3rem;
+        }
 
         .loginForm,
         .registerForm {
         
-            
             display: flex;
             flex-direction: column;
             margin: 1.5rem 0;

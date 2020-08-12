@@ -20,6 +20,9 @@ class Login extends Component {
         //changing Forms
         document.getElementById('registerForm').style.display = "none";
         document.getElementById('loginForm').style.display = "flex";
+
+        //clearing info div
+        document.getElementById('loginInfo').innerHTML ="";
     };
 
     //Toggle The Resgister form
@@ -32,6 +35,7 @@ class Login extends Component {
         //changing Forms
         document.getElementById('registerForm').style.display = "flex";
         document.getElementById('loginForm').style.display = "none";
+        document.getElementById('loginInfo').innerHTML ="";
     };
 
     createUser(event) {
@@ -42,15 +46,18 @@ class Login extends Component {
         let name = event.target.registerName.value;
         let password = event.target.registerPassword.value;
 
+        if (name == "" || password == ""){
+            document.getElementById('loginInfo').innerHTML ="Please enter name and Passwrod";
+        }
+
         //Creating Client side user if password > 8 characters
-        if(password.length < 8) {
-            alert('password must be atleast 8 characters long');
+        else if(password.length < 8) {
+            document.getElementById('loginInfo').innerHTML ="Password must be atleast 8 characters ";
         } else {
             Accounts.createUser({
                 username : name,
                 password : password
             });
-            console.log('he');
         }
 
         //Clearing the input fields
@@ -66,12 +73,21 @@ class Login extends Component {
         let name = event.target.loginName.value;
         let password = event.target.loginPassword.value;
 
-        //Logging in 
-        Meteor.loginWithPassword(name,password);
+        if(name == "" || password == ""){
+            document.getElementById('loginInfo').innerHTML ="Please Enter Name and Password";
+        } else{
+            //Logging in 
+            Meteor.loginWithPassword(name,password);
+            if(Meteor.userId() == null){
+                document.getElementById('loginInfo').innerHTML ="Name or Passoword is Incorrect";
+            }
+        }
 
         //Clearing the input fields
         document.querySelector('#loginName').value ="";
         document.querySelector('#loginPassword').value ="";
+
+        
     };
 
     render() {
@@ -83,7 +99,7 @@ class Login extends Component {
                    <h2 className="btn registerBtn" onClick = {() => this.registerDisplay()}>SignUp</h2>
                </div>
                <div className = "formContainer">
-
+                    <h3 id="loginInfo" className="loginInfo"></h3>
                     <form onSubmit={() => this.loginUser(event)} className ="loginForm" id="loginForm">
                         <input placeholder = "Name" id="loginName"></input>
                         <input placeholder = "password" type="password" id="loginPassword"></input>
