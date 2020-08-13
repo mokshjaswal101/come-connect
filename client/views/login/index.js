@@ -50,6 +50,7 @@ class Login extends Component {
             document.getElementById('loginInfo').innerHTML ="Please enter name and Passwrod";
         }
 
+
         //Creating Client side user if password > 8 characters
         else if(password.length < 8) {
             document.getElementById('loginInfo').innerHTML ="Password must be atleast 8 characters ";
