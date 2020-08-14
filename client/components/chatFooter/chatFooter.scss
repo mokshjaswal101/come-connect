@@ -1,3 +1,5 @@
+@import "../../imports/breakpoints.scss";
+
 .chatFooter {
     flex: 0 0 12%;
     background-color: #1d24375d;
@@ -5,9 +7,18 @@
     padding : 0 1.5rem;
     display: flex;
 
+    @include respond(ipad){
+        flex: 0 0 7%;
+    }
+
     .messageForm{
         flex: 1;
         display: flex;
+
+        @include respond(ipad){
+            font-size: 1.7rem;
+        }
+
 
         .messageInput {
             flex: 0 0 85%;
@@ -17,7 +28,8 @@
             font-size: 1.2rem;
             padding : .7rem .5rem;
             border-radius: .4rem 0 0 .4rem ;
-    
+
+           
             //removing default outlines and borders
             border : none;
             outline : none;

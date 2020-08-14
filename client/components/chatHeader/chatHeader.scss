@@ -1,3 +1,5 @@
+@import "../../imports/breakpoints.scss";
+
 .chatHeader {
     flex : 0 0 15%;
     background-color: #1d24375d;
@@ -5,6 +7,10 @@
 
     display: flex;
     align-items: center;
+
+    @include respond(ipad){
+        flex: 0 0 8%;
+    }
 
 
     .heading {
