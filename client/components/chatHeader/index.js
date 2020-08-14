@@ -8,6 +8,7 @@ import conversations from "../../models/conversations";
 //importing Font Awesome Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCog } from "@fortawesome/free-solid-svg-icons";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 //import SASS
 import "./chatHeader.scss";
@@ -44,12 +45,18 @@ class ChatHeader extends Component {
         document.getElementById('convoModalContainer').style.display = "block";
     }
 
-
+    sidenavToggle() {
+        document.getElementById('sidenav').classList.toggle('menuOpen');
+    }
 
     render() {
 
         return(
             <div className = "chatHeader">
+                <div className="sidebarToggleContainer">
+                    <FontAwesomeIcon onClick={() => this.sidenavToggle()} className="sidebarToggle" id="sidebarToggle" icon={faBars}/> 
+                </div>
+                
                 <h1 className = "heading">
                     {
                         this.props.activeConversation.length == 0 ? null :

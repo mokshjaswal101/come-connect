@@ -9,6 +9,7 @@ import conversations from "../../models/conversations";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 //importing components
 import ChatArea from "../chatArea";
@@ -85,12 +86,20 @@ class Sidenav extends Component {
         document.getElementById('logoutModalContainer').style.display = "block";
     }
 
+    menuToggle(){
+        document.getElementById('sidenav').classList.toggle('menuOpen');
+    }
+
     
     render() {
         return(
             <div className = "cover">
 
-                <div className = "sidenav">
+                <div className = "sidenav" id="sidenav">
+
+                    <div className = "closeMenu">
+                        <FontAwesomeIcon onClick={() => this.menuToggle()} className="closeSidenav" icon = {faTimes}></FontAwesomeIcon>
+                    </div>
 
                    <div className = "titleContainer">
                        <h1 className = "title">ComeConnect</h1>

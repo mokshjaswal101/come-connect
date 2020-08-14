@@ -9,15 +9,43 @@
     .sidenav {
         flex : 0 0 20%;
         background-color:#1d2437 ;
+        transition: all 2s;
     
         @include respond(ipad){
-            flex: 0 0 25%;
+            display: none;
+            flex: 0 0 100%;
+            padding: 10rem;
+            opacity: 0;
+
+            background-color: #121724;
         }
 
+        @include respond(phone){
+            padding: 5rem;
+        }
 
         display: flex;
         flex-direction: column;
         align-items: center;
+        position: relative;
+        
+        .closeMenu{
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 0;
+            padding: 5rem;
+            color: #e75a89;
+            font-size: 2rem;
+
+            @include respond(ipad){
+                display: block;
+            }
+
+            @include respond(phone){
+                padding: 2rem;
+            }
+        }
 
         .titleContainer {
 
@@ -39,10 +67,6 @@
 
         }
 
-        .info {
-            color: white;
-        }
-
         .chatList {
             flex : 1;
             padding: 2rem 1rem;
@@ -59,6 +83,16 @@
                 border-radius: .5rem;
                 transition: all .2s;
                 cursor: pointer;
+
+                @include respond(ipad){
+                    font-size: 1.6rem;
+                    margin: 1rem 3rem 0 3rem;
+                }
+
+                @include respond(phone){
+                    flex : 1;
+                    margin: 1rem 0 0 0 ;
+                }
 
                 &:hover {
                     background-color: #e75a89;
@@ -83,6 +117,10 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
+
+                @include respond(ipad){
+                    font-size: 2rem;
+                }
 
                 .addChatIcon {
                     transition: all .2s;
@@ -120,6 +158,10 @@
                 justify-content: center;
                 align-items: center;
                 border-radius: .5rem;
+
+                @include respond(ipad){
+                    font-size: 2rem;
+                }
     
                 &:hover{
                     background-color: #141825;
@@ -135,6 +177,11 @@
             }
         }
         
+    }
+
+    .menuOpen {
+        display: flex;
+        opacity: 1;
     }
 
 }

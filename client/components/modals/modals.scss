@@ -1,3 +1,5 @@
+@import "../../imports/breakpoints.scss";
+
 .infoModalContainer{
 
     height: 100vh;
@@ -5,6 +7,10 @@
     position: relative;
     background-image: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5));
     display: none;
+
+    @include respond(phone){
+      width: calc(100vw - 6rem);
+    }
 
     .infoModal {
       
@@ -23,6 +29,10 @@
         padding: 1rem 2rem;
         border-radius: 1rem;
         background-color: #1d2437;
+
+        @include respond(ipad){
+          padding: 1rem 0 1rem 2rem;
+        }
 
         .info {
           flex: 1;
@@ -69,6 +79,10 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%,-50%);
+      
+      @include respond(phone){
+        width: calc(100vw - 6rem);
+      }
 
       .logoutModalInner {
 
@@ -79,6 +93,10 @@
         border-radius: 1rem;
         display: flex;
         color: #d4d4d4;
+        
+        @include respond(ipad){
+          padding: 1rem 0 1rem 2rem;
+        }
 
         .logoutInfo {
 
@@ -143,6 +161,7 @@
     position: relative;
     background-image: linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5));
     display: none;
+    
 
     .convoModal {
     
@@ -151,6 +170,10 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%,-50%);
+
+      @include respond(phone){
+        width: calc(100vw - 6rem);
+      }
 
       .convoModalInner {
 
@@ -161,6 +184,10 @@
         border-radius: 1rem;
         display: flex;
         color: #d4d4d4;
+
+        @include respond(ipad){
+          padding: 1rem 0 1rem 2rem;
+        }
 
         .convoInfo {
 
@@ -203,6 +230,8 @@
         .close {
           padding: 0 .8rem;
           display: flex;
+
+
   
           .closeIcon {
             margin-left: auto;

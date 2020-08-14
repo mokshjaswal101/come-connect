@@ -11,15 +11,15 @@
         flex: 0 0 7%;
     }
 
+    @include respond(phone){
+        padding: 0 .5rem;
+    }
+
     .messageForm{
         flex: 1;
         display: flex;
 
-        @include respond(ipad){
-            font-size: 1.7rem;
-        }
-
-
+        
         .messageInput {
             flex: 0 0 85%;
             margin-left: auto;
@@ -29,6 +29,14 @@
             padding : .7rem .5rem;
             border-radius: .4rem 0 0 .4rem ;
 
+            @include respond(ipad){
+                flex: 0 0 90%;
+                font-size: 1.4rem;
+            }
+
+            @include respond(phone){
+                flex : 1;
+            }
            
             //removing default outlines and borders
             border : none;
@@ -46,6 +54,10 @@
             display: flex;
             padding: .4rem;
             border-radius: 0 .4rem .4rem 0;
+
+            @include respond(phone-big){
+                flex: 0 0 3rem;
+            }
                 
            .messageSendBackground {
                 flex: 1;

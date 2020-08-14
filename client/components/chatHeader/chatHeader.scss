@@ -12,14 +12,36 @@
         flex: 0 0 8%;
     }
 
+    @include respond(phone){
+        padding: 0 .3rem;
+    }
+
 
     .heading {
-        flex : 0 0 90%;
+        flex : 1;
         font-size: 2.4rem;
         color: #d4d4d4;
         font-weight: 700;
         margin: 0;
         padding-left: 1.5rem;
+
+        @include respond(phone){
+            padding-left: .5rem;
+        }
+    }
+
+    .sidebarToggleContainer{
+        flex: 0 0 8%;
+        color: #e75a89;
+        font-size: 2rem;
+        width:2rem;
+        display: flex;
+        justify-content: center;
+        display: none;
+
+        @include respond(ipad){
+            display: flex;
+        }
     }
 
     .settings {
