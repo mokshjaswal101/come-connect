@@ -79,6 +79,7 @@ class Login extends Component {
         } else{
             //Logging in 
             Meteor.loginWithPassword(name,password);
+            
             if(Meteor.userId() == null){
                 document.getElementById('loginInfo').innerHTML ="Name or Passoword is Incorrect";
             }
