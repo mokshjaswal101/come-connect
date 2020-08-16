@@ -74,10 +74,15 @@ class Sidenav extends Component {
             active : convoId,
         });
 
+        if(document.getElementById('menuOpen')){
+            document.getElementById('menuOpen').classList.remove('menuOpen');
+        }
+
         if(document.querySelector('.active')){
             document.querySelector('.active').classList.remove('active');
         }
         document.getElementById(convoId).classList.add('active');
+
     }
 
 

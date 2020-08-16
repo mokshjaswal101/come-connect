@@ -7,6 +7,7 @@ import { Accounts } from "meteor/accounts-base";
 
 //import SASS
 import "./login.scss";
+import { unstable_renderSubtreeIntoContainer } from "react-dom";
 
 class Login extends Component {
 
@@ -41,15 +42,15 @@ class Login extends Component {
     createUser(event) {
         //prevent default reload of page
         event.preventDefault();
+        document.getElementById('loginInfo').innerHTML = "";
 
         //getting form values
         let name = event.target.registerName.value;
         let password = event.target.registerPassword.value;
 
         if (name == "" || password == ""){
-            document.getElementById('loginInfo').innerHTML ="Please enter name and Passwrod";
+            document.getElementById('loginInfo').innerHTML ="Please enter name and Password";
         }
-
 
         //Creating Client side user if password > 8 characters
         else if(password.length < 8) {
@@ -58,6 +59,8 @@ class Login extends Component {
             Accounts.createUser({
                 username : name,
                 password : password
+            },function(){
+                document.getElementById('loginInfo').innerHTML = "Name already registered";
             });
         }
 
